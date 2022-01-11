@@ -14,7 +14,10 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayPersonFromChambery() {
-        System.out.println("todo");
+        TxtHelper bdd = new TxtHelper();
+        bdd.getDataFromTxt("server.txt");
+        bdd.insertDataInTxt(line,"local.txt");
+        System.out.println(bdd.getDataFromTxt("local.txt"));
     }
 
     /*
@@ -24,7 +27,23 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayBoomers() {
-
+        TxtHelper data = new TxtHelper();
+        data.getDataFromTxt("local.txt");
+        int age=0;
+        int boomer =0;
+        for(int i=0, i<data.size(), i++){
+            try {
+                age = data.get(i).getAge();
+            } catch (Exception e) {
+                continue;
+            }
+            if(age <25 and !0){
+                boomer+=1;
+            }
+            
+        }
+        System.out.println(boomer);
+        data.clearDataLocal();
     }
 
     /*
@@ -33,7 +52,23 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayFemales() {
-
+        TxtHelper data = new TxtHelper();
+        data.getDataFromTxt("local.txt");
+        String sexe="";
+        int femme =0;
+        for(int i=0, i<data.size(), i++){
+            try {
+                sexe = data.get(i).gender();
+            } catch (Exception e) {
+                continue;
+            }
+            if(sexe.equals("female")){
+                femme+=1;
+            }
+            
+        }
+        System.out.println(femme);
+        data.clearDataLocal();
     }
 
     /*
